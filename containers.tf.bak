@@ -1,0 +1,28 @@
+resource "azurerm_container_group" "example" {
+  name                = "example-continst"
+  location            = var.location
+  resource_group_name = var.rg
+  ip_address_type     = "Public"
+  dns_name_label      = "srs-containers23"
+  os_type             = "Linux"
+
+  container {
+    name   = "hello-world"
+    image  = "tomcat"
+    cpu    = "0.5"
+    memory = "1"
+
+    ports {
+      port     = 8080
+      protocol = "TCP"
+    }
+  }
+
+  tags = {
+    environment = "testing"
+  }
+}
+
+output "ip_address" {
+  value = azurerm_container_group.example.ip_address
+}
