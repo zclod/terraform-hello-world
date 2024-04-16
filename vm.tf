@@ -88,7 +88,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("~/.ssh/id_rsa.pub1")
+    public_key = file("~/.ssh/id_rsa.pub")
   }
 }
 
