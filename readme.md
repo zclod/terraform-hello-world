@@ -1,19 +1,19 @@
-installare azure-cli
-installare terraform
+# Requisiti per utilizzare terraform con azure
 
-fare login tramite azure-cli
-az login
+* installare azure-cli
+* installare terraform
 
-creare una cartella per "progetto" terraform
-creare file provider.tf dove viene definito il provider azure
-lanciare terraform init
+# Setup
 
-documentazione https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+* fare login tramite azure-cli con il comando **az login**
+* creare un file .tf per definire il provider azure come descritto nellla [documentazione] (https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+* lanciare il comando **terraform init** per inizializzare terraform
 
-per istanziare e cancellare risorse utilizzare i seguenti comandi
+# Utilizzo base
 
-terraform plan
-terraform apply
-terraform destroy
+una volta definite le risorse da instanziare negli appositi file .tf utilizzare i seguenti comandi:
 
-(terraform refresh)
+* terraform plan: analizza lo stato corrente dell'infrastruttura e produce il piano di deploy per allineare lo stato attuale con lo stato definito nei file di configurazione
+* terraform apply: esegue gli step definiti con il comando plan
+* terraform destroy: cancella tutte le risorse dell'infrastruttura
+* (terraform refresh): per fare un update dello stato attuale dell'infrastruttura
